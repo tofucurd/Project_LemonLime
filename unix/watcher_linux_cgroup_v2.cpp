@@ -32,7 +32,6 @@ ssize_t getMemoryRLimit(ssize_t memoryLimitInMiB) { return memoryLimitInMiB * 10
 
 size_t getMaxRSSInByte(long ru_maxrss) { return ru_maxrss * 1024; }
 
-// 向cgroup文件写入内容
 void write_cgroup_file(const std::string& path, const std::string& value) {
     std::ofstream file(path);
     if (!file.is_open()) {
@@ -44,7 +43,6 @@ void write_cgroup_file(const std::string& path, const std::string& value) {
     }
 }
 
-// 从cgroup文件读取内容
 std::string read_cgroup_file(const std::string& path) {
     std::ifstream file(path);
     if (!file.is_open()) {
@@ -59,29 +57,25 @@ std::string read_cgroup_file(const std::string& path) {
 }
 
 void cleanUp(const std::string& path) {
-    // cleanUp cgroup (multiple times)
-    for (int attempt = 0; attempt < 3; attempt++) {
-        try {
-            // kill all threads in cgroup
-            std::string procs_file = path + "/cgroup.procs";
-            if (fs::exists(procs_file)) {
-                std::ifstream file(procs_file);
-                if (file.is_open()) {
-                    pid_t pid;
-                    while (file >> pid) {
-                        if (pid > 0 && pid != getpid()) {
-                            kill(pid, SIGKILL);
-                        }
+    try {
+        // kill all threads in cgroup
+        std::string procs_file = path + "/cgroup.procs";
+        if (fs::exists(procs_file)) {
+            std::ifstream file(procs_file);
+            if (file.is_open()) {
+                pid_t pid;
+                while (file >> pid) {
+                    if (pid > 0 && pid != getpid()) {
+                        kill(pid, SIGKILL);
                     }
                 }
             }
-            
-            // remove cgroup dir
-            fs::remove_all(path);
-            break;
-        } catch (...) {
-            usleep(100000); // 100ms
         }
+        
+        // remove cgroup dir
+        fs::remove_all(path);
+    } catch (...) {
+
     }
 }
 
@@ -210,7 +204,7 @@ auto main(int /*argc*/, char *argv[]) -> int {
         }
 
         cleanUp(cgroup_path);
-
+        
         if (print_flag) {
             printf("%d\n", timeLimitInMS);
 			printf("%zu\n", peakMemoryInByte);
