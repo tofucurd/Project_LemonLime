@@ -1,11 +1,11 @@
-watcher_run_c_test 15 0.0217617
-watcher_run_sh_test 15 0.0229598
-watcher_MLE_static_test 19 0.000927536
-watcher_unlimit_memory_test 15 0.02194
-watcher_TLE_test 8 0.627733
-watcher_filename_with_space_test 15 0.0222169
-watcher_symlink_abs_test 15 0.0221445
-watcher_symlink_rel_test 15 0.0217473
-watcher_redirect_IO_test 15 0.135429
-watcher_RE_test 15 0.0273705
+watcher_run_c_test 16 0.00208332
+watcher_run_sh_test 16 0.00175508
+watcher_MLE_static_test 20 0.00125086
+watcher_unlimit_memory_test 16 0.00205411
+watcher_TLE_test 9 0.557965
+watcher_filename_with_space_test 16 0.0018405
+watcher_symlink_abs_test 16 0.00162909
+watcher_symlink_rel_test 16 0.00219929
+watcher_redirect_IO_test 16 0.126224
+watcher_RE_test 16 0.00594503
 ---
