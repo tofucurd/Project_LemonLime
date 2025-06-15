@@ -115,15 +115,15 @@
 },
 {
   "directory": "/root/Project_LemonLime",
-  "command": "/usr/bin/c++ -DLEMON_BUILD_EXTRA_INFO_STR=\"\\\"LemonLime 0.3.5:271\\\"\" -DLEMON_BUILD_INFO_STR=\"\\\"LemonLime from manual build\\\"\" -DLEMON_EMBED_DOCS -DLEMON_EMBED_TRANSLATIONS -DLEMON_VERSION_BUGFIX=5 -DLEMON_VERSION_BUILD=271 -DLEMON_VERSION_MAJOR=0 -DLEMON_VERSION_MINOR=3 -DLEMON_VERSION_STRING=\\\"0.3.5\\\" -DQT_NO_FOREACH -DSPDLOG_BUILD_SHARED=OFF -DSPDLOG_COMPILED_LIB -I/root/Project_LemonLime -I/root/Project_LemonLime/watcher_unix_autogen/include -O3 -DNDEBUG -std=c++17 -o CMakeFiles/watcher_unix.dir/unix/watcher_unix.cpp.o -c /root/Project_LemonLime/unix/watcher_unix.cpp",
-  "file": "/root/Project_LemonLime/unix/watcher_unix.cpp",
-  "output": "CMakeFiles/watcher_unix.dir/unix/watcher_unix.cpp.o"
+  "command": "/usr/bin/c++ -DLEMON_BUILD_EXTRA_INFO_STR=\"\\\"LemonLime 0.3.5:271\\\"\" -DLEMON_BUILD_INFO_STR=\"\\\"LemonLime from manual build\\\"\" -DLEMON_EMBED_DOCS -DLEMON_EMBED_TRANSLATIONS -DLEMON_VERSION_BUGFIX=5 -DLEMON_VERSION_BUILD=271 -DLEMON_VERSION_MAJOR=0 -DLEMON_VERSION_MINOR=3 -DLEMON_VERSION_STRING=\\\"0.3.5\\\" -DQT_NO_FOREACH -DSPDLOG_BUILD_SHARED=OFF -DSPDLOG_COMPILED_LIB -I/root/Project_LemonLime -I/root/Project_LemonLime/watcher_unix_autogen/include -O3 -DNDEBUG -std=c++17 -o CMakeFiles/watcher_unix.dir/unix/watcher_linux_cgroup_v2.cpp.o -c /root/Project_LemonLime/unix/watcher_linux_cgroup_v2.cpp",
+  "file": "/root/Project_LemonLime/unix/watcher_linux_cgroup_v2.cpp",
+  "output": "CMakeFiles/watcher_unix.dir/unix/watcher_linux_cgroup_v2.cpp.o"
 },
 {
   "directory": "/root/Project_LemonLime",
-  "command": "/usr/bin/c++ -DLEMON_BUILD_EXTRA_INFO_STR=\"\\\"LemonLime 0.3.5:271\\\"\" -DLEMON_BUILD_INFO_STR=\"\\\"LemonLime from manual build\\\"\" -DLEMON_EMBED_DOCS -DLEMON_EMBED_TRANSLATIONS -DLEMON_VERSION_BUGFIX=5 -DLEMON_VERSION_BUILD=271 -DLEMON_VERSION_MAJOR=0 -DLEMON_VERSION_MINOR=3 -DLEMON_VERSION_STRING=\\\"0.3.5\\\" -DQT_NO_FOREACH -DSPDLOG_BUILD_SHARED=OFF -DSPDLOG_COMPILED_LIB -I/root/Project_LemonLime -I/root/Project_LemonLime/watcher_unix_autogen/include -O3 -DNDEBUG -std=c++17 -o CMakeFiles/watcher_unix.dir/unix/watcher_linux.cpp.o -c /root/Project_LemonLime/unix/watcher_linux.cpp",
-  "file": "/root/Project_LemonLime/unix/watcher_linux.cpp",
-  "output": "CMakeFiles/watcher_unix.dir/unix/watcher_linux.cpp.o"
+  "command": "/usr/bin/c++ -DLEMON_BUILD_EXTRA_INFO_STR=\"\\\"LemonLime 0.3.5:271\\\"\" -DLEMON_BUILD_INFO_STR=\"\\\"LemonLime from manual build\\\"\" -DLEMON_EMBED_DOCS -DLEMON_EMBED_TRANSLATIONS -DLEMON_VERSION_BUGFIX=5 -DLEMON_VERSION_BUILD=271 -DLEMON_VERSION_MAJOR=0 -DLEMON_VERSION_MINOR=3 -DLEMON_VERSION_STRING=\\\"0.3.5\\\" -DQT_NO_FOREACH -DSPDLOG_BUILD_SHARED=OFF -DSPDLOG_COMPILED_LIB -I/root/Project_LemonLime -I/root/Project_LemonLime/watcher_unix_autogen/include -O3 -DNDEBUG -std=c++17 -o CMakeFiles/watcher_unix.dir/unix/watcher_linux_static.cpp.o -c /root/Project_LemonLime/unix/watcher_linux_static.cpp",
+  "file": "/root/Project_LemonLime/unix/watcher_linux_static.cpp",
+  "output": "CMakeFiles/watcher_unix.dir/unix/watcher_linux_static.cpp.o"
 },
 {
   "directory": "/root/Project_LemonLime",
