@@ -60,28 +60,25 @@ std::string read_cgroup_file(const std::string& path) {
 
 void cleanUp(const std::string& path) {
     // cleanUp cgroup (multiple times)
-    for (int attempt = 0; attempt < 3; attempt++) {
-        try {
-            // kill all threads in cgroup
-            std::string procs_file = path + "/cgroup.procs";
-            if (fs::exists(procs_file)) {
-                std::ifstream file(procs_file);
-                if (file.is_open()) {
-                    pid_t pid;
-                    while (file >> pid) {
-                        if (pid > 0 && pid != getpid()) {
-                            kill(pid, SIGKILL);
-                        }
+    try {
+        // kill all threads in cgroup
+        std::string procs_file = path + "/cgroup.procs";
+        if (fs::exists(procs_file)) {
+            std::ifstream file(procs_file);
+            if (file.is_open()) {
+                pid_t pid;
+                while (file >> pid) {
+                    if (pid > 0 && pid != getpid()) {
+                        kill(pid, SIGKILL);
                     }
                 }
             }
-            
-            // remove cgroup dir
-            fs::remove_all(path);
-            break;
-        } catch (...) {
-            usleep(100000); // 100ms
         }
+        
+        // remove cgroup dir
+        fs::remove_all(path);
+        break;
+    } catch (...) {
     }
 }
 
