@@ -30,7 +30,7 @@ static auto read_elf_ident(int fd, char *e_ident) -> bool {
 	return true;
 }
 
-template <typename Ehdr, typename Phdr> static auto calculateStaticMemoryUsage(int fd) -> ssize_t {
+template <typename Ehdr, typename Phdr> static auto calculateStaticMemoryUsageInByte(int fd) -> ssize_t {
 	ssize_t res = 0;
 
 	Ehdr elf_header;
@@ -68,9 +68,7 @@ template <typename Ehdr, typename Phdr> static auto calculateStaticMemoryUsage(i
 	return res;
 }
 
-void initWatcher() { return; }
-
-ssize_t calculateStaticMemoryUsage(const std::string &fileName) {
+ssize_t calculateStaticMemoryUsageInByte(const std::string &fileName) {
 	char e_ident[EI_NIDENT];
 	ssize_t staticMemoryUsage = 0;
 	int fd = open(fileName.c_str(), O_RDONLY);
@@ -82,9 +80,9 @@ ssize_t calculateStaticMemoryUsage(const std::string &fileName) {
 		return -1;
 	}
 	if (e_ident[EI_CLASS] == ELFCLASS32) {
-		staticMemoryUsage = calculateStaticMemoryUsage<Elf32_Ehdr, Elf32_Phdr>(fd);
+		staticMemoryUsage = calculateStaticMemoryUsageInByte<Elf32_Ehdr, Elf32_Phdr>(fd);
 	} else if (e_ident[EI_CLASS] == ELFCLASS64) {
-		staticMemoryUsage = calculateStaticMemoryUsage<Elf64_Ehdr, Elf64_Phdr>(fd);
+		staticMemoryUsage = calculateStaticMemoryUsageInByte<Elf64_Ehdr, Elf64_Phdr>(fd);
 	} else {
 		staticMemoryUsage = -1;
 	}
@@ -92,7 +90,3 @@ ssize_t calculateStaticMemoryUsage(const std::string &fileName) {
 
 	return staticMemoryUsage;
 }
-
-ssize_t getMemoryRLimit(ssize_t memoryLimitInMB) { return memoryLimitInMB * 1024 * 1024; }
-
-size_t getMaxRSSInByte(long ru_maxrss) { return ru_maxrss * 1024; }

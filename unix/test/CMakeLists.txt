@@ -7,9 +7,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 if(APPLE)
-    add_executable(watcher_unix ${CMAKE_CURRENT_SOURCE_DIR}/../watcher_unix.cpp ${CMAKE_CURRENT_SOURCE_DIR}/../watcher_macos.mm)
+    add_executable(watcher_unix ${CMAKE_CURRENT_SOURCE_DIR}/../watcher_macos_rlimit.cpp ${CMAKE_CURRENT_SOURCE_DIR}/../watcher_macos_static.mm)
 else()
-    add_executable(watcher_unix ${CMAKE_CURRENT_SOURCE_DIR}/../watcher_unix.cpp ${CMAKE_CURRENT_SOURCE_DIR}/../watcher_linux.cpp)
+    add_executable(watcher_unix ${CMAKE_CURRENT_SOURCE_DIR}/../watcher_linux_static.cpp ${CMAKE_CURRENT_SOURCE_DIR}/../watcher_linux_cgroup_v2.cpp)
 endif()
 
 add_executable(hello hello.c)
