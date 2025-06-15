@@ -75,7 +75,6 @@ void cleanUp(const std::string& path) {
         // remove cgroup dir
         fs::remove_all(path);
     } catch (...) {
-
     }
 }
 
